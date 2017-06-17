@@ -1,0 +1,31 @@
+			Kurosawa Open Source License
+			   VERSION 1, 09 April 2017
+
+					
+ Copyright (C) 2017 Takeya Yuki. <http://kslinux.info/>
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
+===============
+Downgrade License
+			GNU GENERAL PUBLIC LICENSE
+                           Version 3, 29 June 2007
+
+ Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
+===============
+
+1. You can copy, modify, redistribute all the sources and
+binaries for free.
+2. It has no warranty if you modify any bytes of sources or
+binaries.
+3. The original version has a 2-years warranty support
+4. It will apply GPLv3 License when you modify all the sources
+and binaries.
+5. Original Version will be signed as following User:
+Takeya Yuki <yuki@gakkougurashi.net>
+KSLinux <dev@kslinux.info>
+KSLinux Dev <dev@kslinux.info>
+Takeya Yuki <dev@kslinux.info>
+6. After your modifications, Please sign it with your own 
+user informations.
