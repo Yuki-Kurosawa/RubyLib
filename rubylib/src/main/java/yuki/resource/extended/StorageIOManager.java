@@ -25,7 +25,7 @@ public class StorageIOManager {
             if(!D.exists()){
                 D.mkdirs();
             }
-            if((!F.exists())) {
+            if(F.exists()) {
                 FileInputStream inputStream = new FileInputStream(F);
                 byte[] f=new byte[(int)inputStream.available()];
                 inputStream.read(f);
@@ -36,6 +36,7 @@ public class StorageIOManager {
                 throw new FileNotFoundException();
             }
         }catch (Exception ex){
+            ex.printStackTrace();
             if(error) {
                 throw ex;
             }
@@ -64,7 +65,7 @@ public class StorageIOManager {
                 F.setReadable(true);
             }
         }catch (Exception ex){
-
+            ex.printStackTrace();
         }
     }
 
