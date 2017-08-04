@@ -98,7 +98,13 @@ public class YukiJSBridge {
         criteria.setCostAllowed(true);
         criteria.setPowerRequirement(Criteria.POWER_HIGH);
 
-        Location location = locationManager.getLastKnownLocation(provider);
-        return location;
+        try {
+            Location location = locationManager.getLastKnownLocation(provider);
+            return location;
+        }
+        catch (SecurityException ex){
+            //DO NOTHING
+            return null;
+        }
     }
 }

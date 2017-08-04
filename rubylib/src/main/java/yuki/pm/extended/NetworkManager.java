@@ -73,7 +73,7 @@ public class NetworkManager {
     public static int GetNetworkType(Context context) {
         ConnectivityManager mConnectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
-        if (mNetworkInfo != null || mNetworkInfo.isAvailable()) {
+        if (mNetworkInfo != null && mNetworkInfo.isAvailable()) {
             if (mNetworkInfo.getType() == ConnectivityManager.TYPE_WIFI || mNetworkInfo.getType() == ConnectivityManager.TYPE_WIMAX) {
                 return WIFI;
             } else {

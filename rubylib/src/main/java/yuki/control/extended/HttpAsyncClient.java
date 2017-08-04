@@ -237,4 +237,46 @@ public final class HttpAsyncClient {
             }
         }).start();
     }
+
+    public static void AsyncRESTString(final String Url,final Activity activity,final String RESTMethod,final String ContentType,final String rawData,final OnREST post){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                HttpURLConnection urlConnection = null;
+                try {
+                    URL url = new URL(Url);
+                    urlConnection = (HttpURLConnection) url.openConnection();
+                    urlConnection.setDoOutput(true);
+                    urlConnection.setDoInput(true);
+                    urlConnection.setRequestMethod(RESTMethod);
+                    urlConnection.setRequestProperty("Content-Type",ContentType);
+                    urlConnection.setRequestProperty("Connection","Keep-Alive");
+                    urlConnection.setRequestProperty("Charset", "UTF-8");
+                    urlConnection.setUseCaches(false);
+                    OutputStream out=urlConnection.getOutputStream();
+                    out.write(rawData.getBytes("UTF-8"));
+                    out.flush();
+                    out.close();
+                    InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+                    final String result = readInStream(in);
+                    if (post != null && activity != null && post instanceof OnRESTString) {
+                        activity.runOnUiThread(
+                                new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        ((OnRESTString) post).REST(result);
+                                    }
+                                }
+                        );
+                    }
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } finally {
+                    urlConnection.disconnect();
+                }
+            }
+        }).start();
+    }
 }

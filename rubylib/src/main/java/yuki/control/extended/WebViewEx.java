@@ -350,6 +350,9 @@ public class WebViewEx extends WebView {
     @SuppressLint({"SetJavaScriptEnabled"})
     protected void init(Context context) {
 
+        if(isInEditMode()){
+            return;
+        }
         if (context instanceof Activity) {
             mActivity = new WeakReference<Activity>((Activity) context);
         }

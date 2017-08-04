@@ -125,4 +125,24 @@ public class UIController {
         uiv&=~View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
         mDecorView.setSystemUiVisibility(uiv);
     }
+
+    public static int GetStatusBarHeight(Activity activity){
+        int resourceId = activity.getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if(resourceId>0){
+            return activity.getResources().getDimensionPixelSize(resourceId);
+        }
+        else{
+            return 0;
+        }
+    }
+
+    public static int GetNavigationBarHeight(Activity activity){
+        int resourceId = activity.getResources().getIdentifier("navigation_bar_height", "dimen", "android");
+        if(resourceId>0){
+            return activity.getResources().getDimensionPixelSize(resourceId);
+        }
+        else{
+            return 0;
+        }
+    }
 }
