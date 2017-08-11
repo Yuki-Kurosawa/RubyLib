@@ -7,9 +7,8 @@
     android:orientation="vertical"
     tools:context="jp.ruby.rubylibrary.MainActivity">
 
-    <TextView
-        android:id="@+id/tv"
+    <WebView
+        android:id="@+id/wv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_height="match_parent" />
 </LinearLayout>

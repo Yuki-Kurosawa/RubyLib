@@ -7,6 +7,7 @@ Network Detect<br/>
 Storage IO<br/>
 Command Line Support<br/>
 UI Control Features (Status Bar and Navigation Bar)<br/>
+TTS Features<br/>
 
 ## Current Version
-1.0-git-201706291123
+1.0-git-201708111646

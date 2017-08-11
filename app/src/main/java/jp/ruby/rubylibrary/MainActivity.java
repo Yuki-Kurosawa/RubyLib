@@ -16,11 +16,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.nio.charset.Charset;
+import java.util.Locale;
 
 import yuki.control.extended.WebViewEx;
 import yuki.resource.extended.GsonConvert;
 import yuki.resource.extended.StorageIOManager;
 import yuki.resource.extended.UIController;
+import yuki.tts.extended.TTSComplexController;
 
 public class MainActivity extends Activity {
 
@@ -28,16 +30,12 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        A a=new A();
-        a.a=1;
-        a.b="hello world!";
-        TextView tv=findViewById(R.id.tv);
-        String gson=GsonConvert.SerializeObject(a);
-        tv.setText(gson);
-        A b=GsonConvert.DeserializeObject(gson,A.class);
-        b=null;
-        Intent aa=new Intent(Intent.ACTION_VIEW, Uri.parse("weixin://baidu.com/"));
-        startActivity(aa);
+        WebView wv = (WebView) findViewById(R.id.wv);
+        wv.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+        wv.getSettings().setJavaScriptEnabled(true);
+        wv.loadUrl("http://10.1.1.134:8282/Client.html");
+        wv.addJavascriptInterface(new TTSComplexController(getApplicationContext(), Locale.SIMPLIFIED_CHINESE), "tts");
+        //wv.addJavascriptInterface(new JS(getApplicationContext()), "tts");
     }
 }
 
