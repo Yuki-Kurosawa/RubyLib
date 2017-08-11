@@ -42,7 +42,7 @@ public final class AutoUpdateManager {
         NetworkInfo mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
         boolean lte = false;
         if (NetworkManager.GetNetworkType(mContext) != NetworkManager.NO_NETWORK) {
-            if (NetworkManager.GetNetworkType(mContext) == NetworkManager.MOBILE) {
+            if (NetworkManager.GetNetworkType(mContext) == ConnectivityManager.TYPE_MOBILE) {
                 lte = true;
             }
         } else {

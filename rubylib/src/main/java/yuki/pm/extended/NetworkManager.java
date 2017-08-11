@@ -7,6 +7,7 @@ import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.provider.Settings;
 
+import java.io.IOException;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
@@ -74,20 +75,27 @@ public class NetworkManager {
         ConnectivityManager mConnectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
         if (mNetworkInfo != null && mNetworkInfo.isAvailable()) {
-            if (mNetworkInfo.getType() == ConnectivityManager.TYPE_WIFI || mNetworkInfo.getType() == ConnectivityManager.TYPE_WIMAX) {
-                return WIFI;
-            } else {
-                return MOBILE;
-            }
+            return mNetworkInfo.getType();
         } else {
             return NO_NETWORK;
         }
     }
 
+    /**
+     * Get Ping Status
+     * @param host Host Name
+     * @param timeout Timeout
+     * @return Ping Success
+     * */
+    public static boolean Ping(String host,int timeout){
+        try {
+            return InetAddress.getByName(host).isReachable(timeout);
+        } catch (IOException e) {
+            return false;
+        }
+    }
+
     /*NO Network*/
     public static int NO_NETWORK = 0;
-    /*Wifi Connected*/
-    public static int WIFI = 1;
-    /*Mobile Network Connected*/
-    public static int MOBILE = 2;
+
 }
