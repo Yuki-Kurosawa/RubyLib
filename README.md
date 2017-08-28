@@ -9,6 +9,7 @@ Command Line Support<br/>
 UI Control Features (Status Bar and Navigation Bar)<br/>
 TTS Features<br/>
 Volume Control Features<br/>
+Yuki Push Service<br/>
 
 ## Current Version
-1.0-git-201708111646
+1.0.7-git-201708281423

@@ -7,7 +7,7 @@ publish {
     userOrg = 'takeya-yuki-studio'      //bintray注册的用户名
     groupId = 'jp.ruby.rubylib'         //compile引用时的第1部分groupId
     artifactId = 'rubylib'     //compile引用时的第2部分项目名
-    publishVersion = '1.0.6'    //compile引用时的第3部分版本号
+    publishVersion = '1.0.7'    //compile引用时的第3部分版本号
     desc = 'Ruby Extended Controls'
     website = 'https://github.com/Takeya-Yuki/RubyLib.git'
 }
@@ -18,10 +18,10 @@ android {
     buildToolsVersion "26.0.0"
 
     defaultConfig {
-        minSdkVersion 17
+        minSdkVersion 21
         targetSdkVersion 26
-        versionCode 6
-        versionName "1.0.6"
+        versionCode 7
+        versionName "1.0.7"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
