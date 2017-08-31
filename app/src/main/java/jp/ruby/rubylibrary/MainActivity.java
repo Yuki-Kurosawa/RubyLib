@@ -5,6 +5,8 @@ import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.PermissionInfo;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -18,10 +20,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 import yuki.control.extended.WebViewEx;
 import yuki.msg.extended.NotificationController;
+import yuki.pm.extended.pm;
 import yuki.resource.extended.GsonConvert;
 import yuki.resource.extended.StorageIOManager;
 import yuki.resource.extended.UIController;
@@ -48,6 +53,14 @@ public class MainActivity extends Activity {
         startService(srv);
         NotificationController.Notify(getApplicationContext(),1,R.mipmap.ic_launcher,pi,"Ticker","Title","Content",Notification.FLAG_NO_CLEAR|Notification.FLAG_AUTO_CANCEL);
         NotificationController.Notify(getApplicationContext(),1,R.mipmap.ic_launcher,pi,"Ticker2","Title2","Content2",Notification.FLAG_NO_CLEAR|Notification.FLAG_AUTO_CANCEL);
+        List<PermissionInfo> pis=pm.GetPermissions(getApplicationContext());
+        String data="";
+        for (PermissionInfo Pi:
+             pis) {
+            PackageManager packageManager = getPackageManager();
+            data+=Pi.name+":"+Pi.loadDescription(packageManager)+"<br/>";
+        }
+        wv.loadData(data,"text/html","utf-8");
     }
 }
 
