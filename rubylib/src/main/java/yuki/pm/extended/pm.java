@@ -5,11 +5,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.PermissionInfo;
 import android.net.Uri;
 import android.os.Environment;
+import android.support.annotation.NonNull;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 
 /**
  * Package Manager
@@ -122,5 +130,44 @@ public final class pm {
      */
     public static String GetDataDir(Context context) {
         return android.os.Environment.getDataDirectory().getAbsolutePath();
+    }
+    /**
+     * Check Permissions
+     * @param context Context
+     * @param permission  Permission
+     * @return Result
+     */
+    public static int CheckPermission(Context context,String permission){
+        PackageManager packageManager = context.getPackageManager();
+        int ret=packageManager.checkPermission(permission,GetCurrentPackageName(context));
+        return ret;
+    }
+
+    /**
+     * Get App's Permissions
+     * @param context Context
+     * @return Result
+     */
+    public static List<PermissionInfo> GetPermissions(Context context){
+        try {
+            PackageManager packageManager = context.getPackageManager();
+            PackageInfo pack = packageManager.getPackageInfo(GetCurrentPackageName(context),PackageManager.GET_PERMISSIONS);
+            String[] permissionStrings = pack.requestedPermissions;
+            ArrayList<PermissionInfo> pis=new ArrayList<PermissionInfo>();
+            for (String permission:
+                 permissionStrings) {
+                try {
+                    PermissionInfo pi = packageManager.getPermissionInfo(permission, 0);
+                    pis.add(pi);
+                }
+                catch (Exception ex){
+                    //DO NOTHING
+                }
+            }
+            return pis;
+        } catch (PackageManager.NameNotFoundException e) {
+            //DO NOTHING
+            return new ArrayList<PermissionInfo>();
+        }
     }
 }
