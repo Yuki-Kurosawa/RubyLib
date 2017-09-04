@@ -364,7 +364,7 @@ public class capture extends Activity implements SurfaceHolder.Callback{
         lastResult = rawResult;
 
         //TODO:  NEED FUCKED
-        ResultHandler resultHandler = new ResultHandler();//ResultHandlerFactory.makeResultHandler(null, rawResult);
+        ResultHandler resultHandler = ResultHandlerFactory.makeResultHandler(null, rawResult);
 
         boolean fromLiveScan = barcode != null;
         if (fromLiveScan) {
