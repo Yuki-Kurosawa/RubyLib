@@ -1,5 +1,6 @@
 package yuki.pm.extended;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +10,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PermissionInfo;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Environment;
 import android.support.annotation.NonNull;
 
@@ -168,6 +170,23 @@ public final class pm {
         } catch (PackageManager.NameNotFoundException e) {
             //DO NOTHING
             return new ArrayList<PermissionInfo>();
+        }
+    }
+
+    /**
+     * Permission Request
+     * @param activity Activity
+     * @param permissions permission
+     * @param requestCode Code
+     * @return Result
+     * */
+    public static boolean RequestPermissions(Activity activity,String[] permissions,int requestCode){
+        if(Build.VERSION.SDK_INT>=23) {
+            activity.requestPermissions(permissions, requestCode);
+            return true;
+        }
+        else{
+            return true;
         }
     }
 }

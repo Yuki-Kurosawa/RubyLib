@@ -12,6 +12,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Message;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -62,6 +64,7 @@ public class MainActivity extends Activity {
             data+=Pi.name+":"+Pi.loadDescription(packageManager)+"<br/>";
         }
         wv.loadData(data,"text/html","utf-8");
+        ActivityCompat.requestPermissions(this,null,0);
     }
 }
 
