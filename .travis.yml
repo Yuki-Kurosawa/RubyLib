@@ -4,6 +4,8 @@ android:
     - tools
     - platform-tools
     - tools
+    - add-on
+    - extra
     # The BuildTools version used by your project
     - build-tools-26.0.1
 
