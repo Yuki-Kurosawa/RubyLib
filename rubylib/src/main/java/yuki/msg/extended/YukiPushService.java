@@ -60,15 +60,16 @@ public abstract class YukiPushService extends Service {
                         String readline;
                         readline=sin.readLine();
 
-                        while(readline!=null){
+                        while(true){
                             readline=sin.readLine();
                             if(readline.isEmpty()){continue;}
                             if(readline==null){
-                                break;
+                                continue;
                             }
-                            MessagePushed(readline);
+                            else {
+                                MessagePushed(readline);
+                            }
                         }
-                        socket.close();
                     }
                     catch(IOException ex) {
 

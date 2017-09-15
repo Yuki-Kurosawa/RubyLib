@@ -18,7 +18,7 @@ import yuki.msg.extended.YukiPushService;
 public class TestService extends YukiPushService {
     @Override
     public String GetRemoteEndPoint() {
-        return "10.1.1.134:10086";
+        return "10.1.1.134:8134";
     }
 
     @Override
@@ -40,5 +40,9 @@ public class TestService extends YukiPushService {
         Intent j=new Intent(Intent.ACTION_VIEW, Uri.parse(msg));
         j.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(j);
+        /*Intent i=new Intent(Intent.ACTION_VIEW, Uri.parse("msg://msg"));
+        PendingIntent pi=PendingIntent.getActivity(getApplicationContext(),0,i,PendingIntent.FLAG_UPDATE_CURRENT);
+        NotificationController.Notify(getApplicationContext(),GetServiceID(),GetIcon(),pi,
+                "Yuki Push Service","Yuki Push Service",msg, Notification.FLAG_NO_CLEAR|Notification.FLAG_AUTO_CANCEL);*/
     }
 }

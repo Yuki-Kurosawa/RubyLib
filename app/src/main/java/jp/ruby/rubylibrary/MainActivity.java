@@ -64,7 +64,6 @@ public class MainActivity extends Activity {
             data+=Pi.name+":"+Pi.loadDescription(packageManager)+"<br/>";
         }
         wv.loadData(data,"text/html","utf-8");
-        ActivityCompat.requestPermissions(this,null,0);
     }
 }
 
