@@ -3,8 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/RubyLib.iml" filepath="$PROJECT_DIR$/RubyLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ajaxlib/ajaxlib.iml" filepath="$PROJECT_DIR$/ajaxlib/ajaxlib.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pm/pm.iml" filepath="$PROJECT_DIR$/pm/pm.iml" />
       <module fileurl="file://$PROJECT_DIR$/rubylib/rubylib.iml" filepath="$PROJECT_DIR$/rubylib/rubylib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webviewex/webviewex.iml" filepath="$PROJECT_DIR$/webviewex/webviewex.iml" />
     </modules>
   </component>
 </project>

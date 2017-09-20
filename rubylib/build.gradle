@@ -1,16 +1,16 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
+//apply plugin: 'com.novoda.bintray-release'
 
 
 
-publish {
+/*publish {
     userOrg = 'takeya-yuki-studio'      //bintray注册的用户名
     groupId = 'jp.ruby.rubylib'         //compile引用时的第1部分groupId
     artifactId = 'rubylib'     //compile引用时的第2部分项目名
     publishVersion = '1.0.10'    //compile引用时的第3部分版本号
     desc = 'Ruby Extended Controls'
     website = 'https://github.com/Takeya-Yuki/RubyLib.git'
-}
+}*/
 
 
 android {

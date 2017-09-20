@@ -67,7 +67,7 @@ public final class AutoUpdateManager {
                 public void onClick(DialogInterface dialog, int which) {
                     SharedPreferences.Editor e = mobilenetwork.edit();
                     e.putString("lte", "");
-                    e.commit();
+                    e.apply();
                 }
             });
             b.setNeutralButton("允许本次连接", null);
