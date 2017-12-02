@@ -3,36 +3,18 @@ package jp.ruby.rubylibrary;
 import android.app.Activity;
 import android.app.Notification;
 import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.PermissionInfo;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Message;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.util.AttributeSet;
-import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
 import android.webkit.WebView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
-import java.nio.charset.Charset;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import yuki.control.extended.WebViewEx;
 import yuki.msg.extended.NotificationController;
 import yuki.pm.extended.pm;
-import yuki.resource.extended.GsonConvert;
-import yuki.resource.extended.StorageIOManager;
-import yuki.resource.extended.UIController;
 import yuki.tts.extended.TTSComplexController;
 
 

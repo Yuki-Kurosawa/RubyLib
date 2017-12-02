@@ -4,15 +4,15 @@ apply plugin: 'com.novoda.bintray-release'
 publish {
     userOrg = 'takeya-yuki-studio'      //bintray注册的用户名
     groupId = 'jp.ruby.rubylib'         //compile引用时的第1部分groupId
-    artifactId = 'ajaxlib'     //compile引用时的第2部分项目名
+    artifactId = 'io'     //compile引用时的第2部分项目名
     publishVersion = '2.0.1'    //compile引用时的第3部分版本号
-    desc = 'Ruby Extended Controls - AjaxLib'
+    desc = 'Ruby Extended Controls - IOLib'
     website = 'https://github.com/Takeya-Yuki/RubyLib.git'
 }
 
+
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.2"
 
     defaultConfig {
         minSdkVersion 21
@@ -20,22 +20,24 @@ android {
         versionCode 1
         versionName "2.0"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        //testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    implementation 'com.android.support:appcompat-v7:26.+'
+    implementation 'com.google.code.gson:gson:2.8.1'
+    implementation 'com.android.support:appcompat-v7:26+'
     testImplementation 'junit:junit:4.12'
+    //androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    //androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 }

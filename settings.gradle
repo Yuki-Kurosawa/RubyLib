@@ -1,1 +1,1 @@
-include ':app', ':rubylib', ':webviewex', ':ajaxlib', ':pm'
+include ':app', ':webviewex', ':ajaxlib', ':pm', ':io'
