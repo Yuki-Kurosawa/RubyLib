@@ -12,5 +12,14 @@ Volume Control Features<br/>
 Yuki Push Service<br/>
 
 ## Current Version
-1.0.10-git-201709101131<br/>
-[ ![Download](https://api.bintray.com/packages/takeya-yuki-studio/maven/rubylib/images/download.svg?version=1.0.10) ](https://bintray.com/takeya-yuki-studio/maven/rubylib/1.0.10/link)
+2.0.1-git-20171204<br/>
+All-in-One Package(Depreciated): [ ![Download](https://api.bintray.com/packages/takeya-yuki-studio/maven/rubylib/images/download.svg) ](https://bintray.com/takeya-yuki-studio/maven/rubylib/_latestVersion)
+
+AjaxLib Package: [ ![Download](https://api.bintray.com/packages/takeya-yuki-studio/maven/ajaxlib/images/download.svg) ](https://bintray.com/takeya-yuki-studio/maven/ajaxlib/_latestVersion) Add Gson for JSON Ajax
+
+IO Package:  [ ![Download](https://api.bintray.com/packages/takeya-yuki-studio/maven/io/images/download.svg) ](https://bintray.com/takeya-yuki-studio/maven/io/_latestVersion)
+
+Package Manager: [ ![Download](https://api.bintray.com/packages/takeya-yuki-studio/maven/packagemanager/images/download.svg) ](https://bintray.com/takeya-yuki-studio/maven/packagemanager/_latestVersion) dependency: IO Package, AjaxLib Package
+
+WebViewEx Package: [ ![Download](https://api.bintray.com/packages/takeya-yuki-studio/maven/webviewex/images/download.svg) ](https://bintray.com/takeya-yuki-studio/maven/webviewex/_latestVersion)
+
