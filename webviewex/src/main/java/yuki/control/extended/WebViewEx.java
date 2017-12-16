@@ -1,11 +1,15 @@
 package yuki.control.extended;
 
+import android.os.Looper;
+import android.os.SystemClock;
+import android.text.TextUtils;
 import android.view.ViewGroup;
 import android.app.DownloadManager;
 import android.app.DownloadManager.Request;
 import android.os.Environment;
 import android.webkit.CookieManager;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import android.content.pm.ApplicationInfo;
@@ -58,7 +62,7 @@ import java.util.Map;
  * Advanced WebView component for Android that works as intended out of the box
  */
 @SuppressWarnings("deprecation")
-public class WebViewEx extends WebView {
+public class WebViewEx extends WebView{
 
     public static interface Listener {
         public void onPageStarted(String url, Bitmap favicon);

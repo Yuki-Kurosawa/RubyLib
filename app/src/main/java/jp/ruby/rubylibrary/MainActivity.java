@@ -13,6 +13,7 @@ import android.webkit.WebView;
 import java.util.List;
 import java.util.Locale;
 
+import yuki.control.extended.WebViewEx;
 import yuki.msg.extended.NotificationController;
 import yuki.pm.extended.pm;
 import yuki.tts.extended.TTSComplexController;
@@ -24,7 +25,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        WebView wv = (WebView) findViewById(R.id.wv);
+        WebViewEx wv = (WebViewEx) findViewById(R.id.wv);
         wv.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
         wv.getSettings().setJavaScriptEnabled(true);
         wv.loadUrl("http://10.1.1.134:8282/Client.html");

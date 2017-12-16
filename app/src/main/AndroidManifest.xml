@@ -47,15 +47,7 @@
             </intent-filter>
         </activity>
 
-        <service
-            android:name=".TestService"
-            android:description="@string/app_name"
-            android:exported="true"
-            android:process="Yuki.Test.Service">
-            <intent-filter>
-                <action android:name="AAA" />
-            </intent-filter>
-        </service>
+
     </application>
 
 </manifest>
