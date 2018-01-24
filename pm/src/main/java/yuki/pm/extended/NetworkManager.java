@@ -74,7 +74,7 @@ public class NetworkManager {
     public static int GetNetworkType(Context context) {
         ConnectivityManager mConnectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
-        if (mNetworkInfo != null && mNetworkInfo.isAvailable()) {
+        if (mNetworkInfo != null && mNetworkInfo.isConnectedOrConnecting()) {
             return mNetworkInfo.getType();
         } else {
             return NO_NETWORK;
@@ -96,6 +96,6 @@ public class NetworkManager {
     }
 
     /*NO Network*/
-    public static int NO_NETWORK = 0;
+    public static int NO_NETWORK = -1;
 
 }

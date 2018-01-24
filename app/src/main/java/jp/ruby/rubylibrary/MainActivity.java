@@ -3,9 +3,12 @@ package jp.ruby.rubylibrary;
 import android.app.Activity;
 import android.app.Notification;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.PermissionInfo;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.webkit.WebView;
@@ -15,8 +18,11 @@ import java.util.Locale;
 
 import yuki.control.extended.WebViewEx;
 import yuki.msg.extended.NotificationController;
+import yuki.pm.extended.NetworkManager;
 import yuki.pm.extended.pm;
 import yuki.tts.extended.TTSComplexController;
+
+import static yuki.pm.extended.NetworkManager.NO_NETWORK;
 
 
 public class MainActivity extends Activity {
@@ -33,7 +39,7 @@ public class MainActivity extends Activity {
         //wv.addJavascriptInterface(new JS(getApplicationContext()), "tts");
         Intent i=new Intent(Intent.ACTION_VIEW,Uri.parse("http://www.baidu.com/"));
         PendingIntent pi=PendingIntent.getActivity(getApplicationContext(),0,i,PendingIntent.FLAG_UPDATE_CURRENT);
-
+        int y=NetworkManager.GetNetworkType(MainActivity.this);
         Intent srv=new Intent("AAA");
         srv.setPackage(getPackageName());
         startService(srv);
@@ -47,6 +53,14 @@ public class MainActivity extends Activity {
             data+=Pi.name+":"+Pi.loadDescription(packageManager)+"<br/>";
         }
         wv.loadData(data,"text/html","utf-8");
+
+        ConnectivityManager mConnectivityManager = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
+        if (mNetworkInfo != null && mNetworkInfo.isConnectedOrConnecting()) {
+            int x= mNetworkInfo.getType();
+        } else {
+            int x= NO_NETWORK;
+        }
     }
 }
 

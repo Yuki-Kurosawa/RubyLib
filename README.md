@@ -12,7 +12,7 @@ Volume Control Features<br/>
 Yuki Push Service<br/>
 
 ## Current Version
-2.0.1-git-20171204<br/>
+2.0.2-git-20180124<br/>
 All-in-One Package(Depreciated): [ ![Download](https://api.bintray.com/packages/takeya-yuki-studio/maven/rubylib/images/download.svg) ](https://bintray.com/takeya-yuki-studio/maven/rubylib/_latestVersion)
 
 AjaxLib Package: [ ![Download](https://api.bintray.com/packages/takeya-yuki-studio/maven/ajaxlib/images/download.svg) ](https://bintray.com/takeya-yuki-studio/maven/ajaxlib/_latestVersion) Add Gson for JSON Ajax
