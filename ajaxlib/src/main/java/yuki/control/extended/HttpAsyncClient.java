@@ -17,7 +17,7 @@ public final class HttpAsyncClient {
      * @param activity Window
      * @param get      Response Handler
      **/
-    public static void AsyncGetString(final String Url, final Activity activity, final OnGet get) {
+    public static void AsyncGetString(final String Url, final Activity activity, final OnGet get,final OnException onException) {
 
         new Thread(new Runnable() {
             @Override
@@ -38,10 +38,24 @@ public final class HttpAsyncClient {
                                 }
                         );
                     }
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
+                } catch (final MalformedURLException e) {
+                    if(onException != null){
+                        activity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                onException.OnError(e);
+                            }
+                        });
+                    }
+                } catch (final IOException e) {
+                    if(onException != null){
+                        activity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                onException.OnError(e);
+                            }
+                        });
+                    }
                 } finally {
                     urlConnection.disconnect();
                 }
@@ -66,7 +80,7 @@ public final class HttpAsyncClient {
      * @param get          Download Finished Handler
      **/
     public static void AsyncGetFile(final String Url, final Activity activity, final String savePath,
-                                    final String saveFileName, final OnProgress progress, final OnGet get) {
+                                    final String saveFileName, final OnProgress progress, final OnGet get,final OnException onException) {
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -117,10 +131,24 @@ public final class HttpAsyncClient {
                     } while (true);
                     fos.close();
                     is.close();
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
+                } catch (final MalformedURLException e) {
+                    if(onException != null){
+                        activity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                onException.OnError(e);
+                            }
+                        });
+                    }
+                } catch (final IOException e) {
+                    if(onException != null){
+                        activity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                onException.OnError(e);
+                            }
+                        });
+                    }
                 }
             }
         }).start();
@@ -136,7 +164,7 @@ public final class HttpAsyncClient {
      * @param get      Download Finished Handler
      **/
     public static void AsyncGetFile(final String Url, final Activity activity, final String savePath
-            , final OnProgress progress, final OnGet get) {
+            , final OnProgress progress, final OnGet get,final OnException onException) {
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -187,16 +215,30 @@ public final class HttpAsyncClient {
                     } while (true);
                     fos.close();
                     is.close();
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
+                } catch (final MalformedURLException e) {
+                    if(onException != null){
+                        activity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                onException.OnError(e);
+                            }
+                        });
+                    }
+                } catch (final IOException e) {
+                    if(onException != null){
+                        activity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                onException.OnError(e);
+                            }
+                        });
+                    }
                 }
             }
         }).start();
     }
 
-    public static void AsyncPostString(final String Url,final Activity activity,final String ContentType,final String rawData,final OnPost post){
+    public static void AsyncPostString(final String Url,final Activity activity,final String ContentType,final String rawData,final OnPost post,final OnException onException){
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -227,10 +269,24 @@ public final class HttpAsyncClient {
                                 }
                         );
                     }
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
+                } catch (final MalformedURLException e) {
+                    if(onException != null){
+                        activity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                onException.OnError(e);
+                            }
+                        });
+                    }
+                } catch (final IOException e) {
+                    if(onException != null){
+                        activity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                onException.OnError(e);
+                            }
+                        });
+                    }
                 } finally {
                     urlConnection.disconnect();
                 }
@@ -238,7 +294,7 @@ public final class HttpAsyncClient {
         }).start();
     }
 
-    public static void AsyncRESTString(final String Url,final Activity activity,final String RESTMethod,final String ContentType,final String rawData,final OnREST post){
+    public static void AsyncRESTString(final String Url,final Activity activity,final String RESTMethod,final String ContentType,final String rawData,final OnREST post,final OnException onException){
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -269,10 +325,24 @@ public final class HttpAsyncClient {
                                 }
                         );
                     }
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
+                } catch (final MalformedURLException e) {
+                    if(onException != null){
+                        activity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                onException.OnError(e);
+                            }
+                        });
+                    }
+                } catch (final IOException e) {
+                    if(onException != null){
+                        activity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                onException.OnError(e);
+                            }
+                        });
+                    }
                 } finally {
                     urlConnection.disconnect();
                 }
