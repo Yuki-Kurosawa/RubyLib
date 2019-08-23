@@ -12,12 +12,12 @@ Volume Control Features<br/>
 Yuki Push Service<br/>
 
 ## Current Version
-2.0.2-git-20180124<br/>
+2.1.1-git-20190823<br/>
 All-in-One Package(Depreciated): [ ![Download](https://api.bintray.com/packages/takeya-yuki-studio/maven/rubylib/images/download.svg) ](https://bintray.com/takeya-yuki-studio/maven/rubylib/_latestVersion)
 
-AjaxLib Package: [ ![Download](https://api.bintray.com/packages/takeya-yuki-studio/maven/ajaxlib/images/download.svg) ](https://bintray.com/takeya-yuki-studio/maven/ajaxlib/_latestVersion) Add Gson for JSON Ajax
+AjaxLib Package: [ ![Download](https://api.bintray.com/packages/takeya-yuki-studio/maven/ajaxlib/images/download.svg) ](https://bintray.com/takeya-yuki-studio/maven/ajaxlib/_latestVersion)
 
-IO Package:  [ ![Download](https://api.bintray.com/packages/takeya-yuki-studio/maven/io/images/download.svg) ](https://bintray.com/takeya-yuki-studio/maven/io/_latestVersion)
+IO Package:  [ ![Download](https://api.bintray.com/packages/takeya-yuki-studio/maven/io/images/download.svg) ](https://bintray.com/takeya-yuki-studio/maven/io/_latestVersion) Add Gson for JSON Ajax
 
 Package Manager: [ ![Download](https://api.bintray.com/packages/takeya-yuki-studio/maven/packagemanager/images/download.svg) ](https://bintray.com/takeya-yuki-studio/maven/packagemanager/_latestVersion) dependency: IO Package, AjaxLib Package
 

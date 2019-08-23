@@ -27,17 +27,18 @@ import static yuki.pm.extended.NetworkManager.NO_NETWORK;
 
 public class MainActivity extends Activity {
 
+    WebViewEx wv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        WebViewEx wv = (WebViewEx) findViewById(R.id.wv);
+        wv = (WebViewEx) findViewById(R.id.wv);
         wv.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
         wv.getSettings().setJavaScriptEnabled(true);
-        wv.loadUrl("http://10.1.1.134:8282/Client.html");
+        wv.loadUrl("https://image.so.com/");
         wv.addJavascriptInterface(new TTSComplexController(getApplicationContext(), Locale.SIMPLIFIED_CHINESE), "tts");
         //wv.addJavascriptInterface(new JS(getApplicationContext()), "tts");
-        Intent i=new Intent(Intent.ACTION_VIEW,Uri.parse("http://www.baidu.com/"));
+        Intent i=new Intent(Intent.ACTION_VIEW,Uri.parse("https://www.baidu.com/"));
         PendingIntent pi=PendingIntent.getActivity(getApplicationContext(),0,i,PendingIntent.FLAG_UPDATE_CURRENT);
         int y=NetworkManager.GetNetworkType(MainActivity.this);
         Intent srv=new Intent("AAA");
@@ -52,7 +53,7 @@ public class MainActivity extends Activity {
             PackageManager packageManager = getPackageManager();
             data+=Pi.name+":"+Pi.loadDescription(packageManager)+"<br/>";
         }
-        wv.loadData(data,"text/html","utf-8");
+        //wv.loadData(data,"text/html","utf-8");
 
         ConnectivityManager mConnectivityManager = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
@@ -61,6 +62,12 @@ public class MainActivity extends Activity {
         } else {
             int x= NO_NETWORK;
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        wv.onActivityResult(requestCode,resultCode,data);
     }
 }
 

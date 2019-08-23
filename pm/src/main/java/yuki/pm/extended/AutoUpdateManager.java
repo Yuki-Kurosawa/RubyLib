@@ -11,6 +11,7 @@ import android.os.Handler;
 
 import org.json.JSONObject;
 import yuki.control.extended.HttpAsyncClient;
+import yuki.control.extended.OnException;
 import yuki.control.extended.OnGetString;
 
 
@@ -153,6 +154,11 @@ public final class AutoUpdateManager {
                         }
                     });
                 }
+            }
+        }, new OnException() {
+            @Override
+            public void OnError(Exception error) {
+
             }
         });
     }

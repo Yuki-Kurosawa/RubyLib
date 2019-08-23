@@ -3,7 +3,7 @@ package yuki.resource.extended;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Build;
-import android.support.annotation.ColorInt;
+import androidx.annotation.ColorInt;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.WindowManager;
