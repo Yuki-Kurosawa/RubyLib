@@ -28,7 +28,7 @@ public abstract class YukiPushService extends Service {
     public void MessagePushed(String msg){
         Intent i=new Intent(Intent.ACTION_VIEW, Uri.parse("msg://msg"));
         PendingIntent pi=PendingIntent.getActivity(getApplicationContext(),0,i,PendingIntent.FLAG_UPDATE_CURRENT);
-        NotificationController.Notify(getApplicationContext(),GetServiceID(),GetIcon(),pi,
+        NotificationController.Notify(getApplicationContext(),"SERV",GetServiceID(),GetIcon(),pi,
                 "Yuki Push Service","Yuki Push Service",msg, Notification.FLAG_NO_CLEAR|Notification.FLAG_AUTO_CANCEL);
     }
 

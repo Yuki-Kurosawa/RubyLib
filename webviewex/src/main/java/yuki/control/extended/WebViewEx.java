@@ -550,6 +550,9 @@ public class WebViewEx extends WebView{
 						externalSchemeIntent = new Intent(Intent.ACTION_SENDTO, uri);
 						externalSchemeIntent.setPackage("com.whatsapp");
 					}
+					else if(scheme.equals("weixin")){
+						externalSchemeIntent=new Intent(Intent.ACTION_VIEW,uri);
+					}
 					else {
 						externalSchemeIntent = null;
 					}
@@ -570,6 +573,10 @@ public class WebViewEx extends WebView{
 						// cancel the original request
 						return true;
 					}
+				}
+
+				if(uri.getHost().contains("wx.tenpay.com")){
+					return false;
 				}
 
 				// route the request through the custom URL loading method

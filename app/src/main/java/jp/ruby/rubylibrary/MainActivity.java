@@ -44,8 +44,8 @@ public class MainActivity extends Activity {
         Intent srv=new Intent("AAA");
         srv.setPackage(getPackageName());
         startService(srv);
-        NotificationController.Notify(getApplicationContext(),1,R.mipmap.ic_launcher,pi,"Ticker","Title","Content",Notification.FLAG_NO_CLEAR|Notification.FLAG_AUTO_CANCEL);
-        NotificationController.Notify(getApplicationContext(),1,R.mipmap.ic_launcher,pi,"Ticker2","Title2","Content2",Notification.FLAG_NO_CLEAR|Notification.FLAG_AUTO_CANCEL);
+        NotificationController.Notify(getApplicationContext(),"APP",1,R.mipmap.ic_launcher,pi,"Ticker","Title","Content",Notification.FLAG_NO_CLEAR|Notification.FLAG_AUTO_CANCEL);
+        NotificationController.Notify(getApplicationContext(),"APP",1,R.mipmap.ic_launcher,pi,"Ticker2","Title2","Content2",Notification.FLAG_NO_CLEAR|Notification.FLAG_AUTO_CANCEL);
         List<PermissionInfo> pis=pm.GetPermissions(getApplicationContext());
         String data="";
         for (PermissionInfo Pi:
