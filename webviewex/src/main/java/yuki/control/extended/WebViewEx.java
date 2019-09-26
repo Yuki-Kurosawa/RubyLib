@@ -553,6 +553,9 @@ public class WebViewEx extends WebView{
 					else if(scheme.equals("weixin")){
 						externalSchemeIntent=new Intent(Intent.ACTION_VIEW,uri);
 					}
+					else if(scheme.equals("alipays")){
+						externalSchemeIntent=new Intent(Intent.ACTION_VIEW,uri);
+					}
 					else {
 						externalSchemeIntent = null;
 					}
