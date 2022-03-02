@@ -1,24 +1,12 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
-
-publish {
-    userOrg = 'takeya-yuki-studio'      //bintray注册的用户名
-    groupId = 'jp.ruby.rubylib'         //compile引用时的第1部分groupId
-    artifactId = 'webviewex'     //compile引用时的第2部分项目名
-    publishVersion = '2.1.3'    //compile引用时的第3部分版本号
-    desc = 'Ruby Extended Controls - WebViewEx'
-    website = 'https://github.com/Takeya-Yuki/RubyLib.git'
-}
 
 android {
     compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    buildToolsVersion "30.0.2"
 
     defaultConfig {
-        minSdkVersion 21
+        minSdkVersion 29
         targetSdkVersion 29
-        versionCode 3
-        versionName "2.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
