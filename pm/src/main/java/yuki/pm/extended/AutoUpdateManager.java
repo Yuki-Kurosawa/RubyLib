@@ -6,7 +6,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+import android.net.Network;
+import android.net.NetworkCapabilities;
+import android.os.Build;
 import android.os.Handler;
 
 import org.json.JSONObject;
@@ -40,10 +42,11 @@ public final class AutoUpdateManager {
 
         final SharedPreferences mobilenetwork = mContext.getSharedPreferences(sharepref, Context.MODE_PRIVATE);
         ConnectivityManager mConnectivityManager = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
+        Network mNetworkInfo = mConnectivityManager.getActiveNetwork();
         boolean lte = false;
-        if (NetworkManager.GetNetworkType(mContext) != NetworkManager.NO_NETWORK) {
-            if (NetworkManager.GetNetworkType(mContext) == ConnectivityManager.TYPE_MOBILE) {
+        NetworkCapabilities network=mConnectivityManager.getNetworkCapabilities(mNetworkInfo);
+        if (mNetworkInfo != null) {
+            if (network.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
                 lte = true;
             }
         } else {
@@ -109,8 +112,7 @@ public final class AutoUpdateManager {
             public void Get(String data) {
                 try {
                     final UpdateInfo newUpdateInfo = new UpdateInfo(new JSONObject(data));
-                    final UpdateInfo oldUpdateInfo = new UpdateInfo(pm.GetCurrentVersionName(mContext),
-                            pm.GetCurrentVersionCode(mContext), pm.GetCurrentPackageName(mContext));
+                    final UpdateInfo oldUpdateInfo = new UpdateInfo(pm.GetCurrentVersionName(mContext), pm.GetCurrentPackageName(mContext));
                     if (oldUpdateInfo.getPackageName() != newUpdateInfo.getPackageName()) {
                         mActivity.runOnUiThread(new Runnable() {
                             @Override
@@ -124,14 +126,14 @@ public final class AutoUpdateManager {
                                 builder.create().show();
                             }
                         });
-                    } else if (oldUpdateInfo.getVersionCode() < newUpdateInfo.getVersionCode()) {
+                    } else if (oldUpdateInfo.getVersionName().compareTo(newUpdateInfo.getVersionName())<0 ) {
                         mActivity.runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
                                 builder.setTitle("程序包更新可用");
                                 builder.setMessage("有新的程序包更新可供安装\n" + "新版本: " +
-                                        newUpdateInfo.getVersionName() + "(" + newUpdateInfo.getVersionCode() + ")" +
+                                        newUpdateInfo.getVersionName() + "(" + newUpdateInfo.getVersionName() + ")" +
                                         "\n更新时间: " + newUpdateInfo.getUpdateTime() + "\n更新人:\n" + newUpdateInfo.getUpdater()
                                         + "\n更新内容:\n" + newUpdateInfo.getUpdateInfo());
                                 builder.setNegativeButton("取消更新", null);

@@ -35,6 +35,7 @@ public final class pm {
      * @param context Context
      * @return Version Code
      */
+    @Deprecated
     public static int GetCurrentVersionCode(Context context) {
         PackageManager packageManager = context.getPackageManager();
         try {
@@ -66,6 +67,7 @@ public final class pm {
      * @param context     Context
      * @return Version Code
      */
+    @Deprecated
     public static int GetPackageVersionCode(Context context, String packageName) {
         PackageManager packageManager = context.getPackageManager();
         try {

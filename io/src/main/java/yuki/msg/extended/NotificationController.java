@@ -15,7 +15,7 @@ public class NotificationController {
     public static void Notify(Context context,String channel_id,int id, int icon, PendingIntent pendingIntent,String ticker, String title, String content, int flags){
         if(Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
             NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-            Notification.Builder nb = new Notification.Builder(context);
+            Notification.Builder nb = new Notification.Builder(context,channel_id);
             nb.setSmallIcon(icon).setContentIntent(pendingIntent).setTicker(ticker).setContentTitle(title).setContentText(content).setWhen(System.currentTimeMillis());
             Notification notification = nb.build();
             notification.flags = flags;

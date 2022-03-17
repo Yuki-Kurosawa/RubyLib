@@ -3,8 +3,8 @@ package yuki.pm.extended;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.net.wifi.WifiManager;
+import android.net.Network;
+import android.net.NetworkCapabilities;
 import android.provider.Settings;
 
 import java.io.IOException;
@@ -19,13 +19,11 @@ import java.util.Enumeration;
 public class NetworkManager {
 
     public static void OpenWifi(Context context){
-        WifiManager wifi = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
-        wifi.setWifiEnabled(true);
+        context.startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
     }
 
     public static void CloseWifi(Context context){
-        WifiManager wifi = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
-        wifi.setWifiEnabled(false);
+        context.startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
     }
 
     public static void OpenData(Context context){
@@ -73,10 +71,25 @@ public class NetworkManager {
      */
     public static int GetNetworkType(Context context) {
         ConnectivityManager mConnectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
-        if (mNetworkInfo != null && mNetworkInfo.isConnectedOrConnecting()) {
-            return mNetworkInfo.getType();
-        } else {
+        Network mNetworkInfo = mConnectivityManager.getActiveNetwork();
+        NetworkCapabilities network=mConnectivityManager.getNetworkCapabilities(mNetworkInfo);
+        if (mNetworkInfo != null) {
+            if (network.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
+                return NetworkCapabilities.TRANSPORT_CELLULAR;
+            }
+            else if(network.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)){
+                return NetworkCapabilities.TRANSPORT_WIFI;
+            }
+            else if(network.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)){
+                return NetworkCapabilities.TRANSPORT_ETHERNET;
+            }
+            else
+            {
+                return  NO_NETWORK;
+            }
+        }
+        else
+        {
             return NO_NETWORK;
         }
     }

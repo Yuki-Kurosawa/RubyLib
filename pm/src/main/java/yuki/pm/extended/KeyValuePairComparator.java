@@ -8,6 +8,7 @@ import java.util.Comparator;
 
 public class KeyValuePairComparator<K,V> implements Comparator {
     @Override
+    @SuppressWarnings("unchecked")
     public int compare(Object lhs, Object rhs) {
         return ((KeyValuePair<K,V>)lhs).getKey().toString().compareTo(((KeyValuePair<K,V>)rhs).getKey().toString());
     }

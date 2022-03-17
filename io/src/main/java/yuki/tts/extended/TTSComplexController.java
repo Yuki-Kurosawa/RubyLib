@@ -49,6 +49,7 @@ public class TTSComplexController {
             }
 
             @Override
+            @Deprecated
             public void onError(String s) {
 
             }
@@ -57,6 +58,6 @@ public class TTSComplexController {
     @JavascriptInterface
     public void say(String text) {
         textList.add(text);
-        tts.speak(text,TextToSpeech.QUEUE_ADD,null);
+        tts.speak(text,TextToSpeech.QUEUE_ADD,null,"TTS");
     }
 }

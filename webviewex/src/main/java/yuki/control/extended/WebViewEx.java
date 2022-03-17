@@ -29,8 +29,6 @@ import android.webkit.GeolocationPermissions.Callback;
 import android.webkit.JsPromptResult;
 import android.webkit.JsResult;
 import android.webkit.PermissionRequest;
-import android.webkit.WebStorage.QuotaUpdater;
-import android.app.Fragment;
 import android.util.Base64;
 import android.os.Build;
 import android.webkit.DownloadListener;
@@ -40,12 +38,15 @@ import android.content.Intent;
 import android.net.Uri;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
+import android.webkit.WebStorage;
 import android.webkit.WebViewClient;
 import android.webkit.WebSettings;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.webkit.WebView;
+
+import androidx.fragment.app.Fragment;
 
 import java.util.MissingResourceException;
 import java.util.Locale;
@@ -1031,7 +1032,7 @@ public class WebViewEx extends WebView{
 			}
 
 			@Override
-			public void onExceededDatabaseQuota(String url, String databaseIdentifier, long quota, long estimatedDatabaseSize, long totalQuota, QuotaUpdater quotaUpdater) {
+			public void onExceededDatabaseQuota(String url, String databaseIdentifier, long quota, long estimatedDatabaseSize, long totalQuota, WebStorage.QuotaUpdater quotaUpdater) {
 				if (mCustomWebChromeClient != null) {
 					mCustomWebChromeClient.onExceededDatabaseQuota(url, databaseIdentifier, quota, estimatedDatabaseSize, totalQuota, quotaUpdater);
 				}
@@ -1041,7 +1042,7 @@ public class WebViewEx extends WebView{
 			}
 
 			@Override
-			public void onReachedMaxAppCacheSize(long requiredStorage, long quota, QuotaUpdater quotaUpdater) {
+			public void onReachedMaxAppCacheSize(long requiredStorage, long quota, WebStorage.QuotaUpdater quotaUpdater) {
 				if (mCustomWebChromeClient != null) {
 					mCustomWebChromeClient.onReachedMaxAppCacheSize(requiredStorage, quota, quotaUpdater);
 				}

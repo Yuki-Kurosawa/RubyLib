@@ -7,7 +7,6 @@ import org.json.JSONObject;
  */
 public class UpdateInfo {
     private String versionName;
-    private int versionCode;
     private String updateInfo;
     private String updater;
     private String updateTime;
@@ -22,7 +21,6 @@ public class UpdateInfo {
      */
     public UpdateInfo(JSONObject jsonUpdateData) throws Exception {
         versionName = jsonUpdateData.getString("versionName");
-        versionCode = jsonUpdateData.getInt("versionCode");
         updateInfo = jsonUpdateData.getString("updateInfo");
         updater = jsonUpdateData.getString("updater");
         updateTime = jsonUpdateData.getString("updateTime");
@@ -34,11 +32,9 @@ public class UpdateInfo {
      * Init Update Info via Parameters
      *
      * @param versionName Version Name
-     * @param versionCode Version Code
      * @param packageName Package ID
      */
-    public UpdateInfo(String versionName, int versionCode, String packageName) {
-        this.versionCode = versionCode;
+    public UpdateInfo(String versionName, String packageName) {
         this.versionName = versionName;
         this.packageName = packageName;
     }
@@ -59,15 +55,6 @@ public class UpdateInfo {
      */
     public String getVersionName() {
         return versionName;
-    }
-
-    /**
-     * Return Version Code
-     *
-     * @return Version Code
-     */
-    public int getVersionCode() {
-        return versionCode;
     }
 
     /**

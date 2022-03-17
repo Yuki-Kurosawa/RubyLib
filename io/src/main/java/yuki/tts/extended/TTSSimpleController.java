@@ -34,6 +34,6 @@ public class TTSSimpleController {
     }
     @JavascriptInterface
     public void say(String text) {
-        tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
+        tts.speak(text, TextToSpeech.QUEUE_FLUSH, null,"TTS");
     }
 }
