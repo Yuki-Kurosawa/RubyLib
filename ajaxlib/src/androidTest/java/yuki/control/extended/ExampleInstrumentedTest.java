@@ -1,4 +1,4 @@
-package jp.ruby.rubylibrary;
+package yuki.control.extended;
 
 import android.content.Context;
 import androidx.test.platform.app.InstrumentationRegistry;
@@ -19,8 +19,8 @@ public class ExampleInstrumentedTest {
     @Test
     public void useAppContext() throws Exception {
         // Context of the app under test.
-        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+        Context appContext = InstrumentationRegistry.getInstrumentation().getContext();
 
-        assertEquals("jp.ruby.rubylibrary", appContext.getPackageName());
+        assertEquals("yuki.control.extended.test", appContext.getPackageName());
     }
 }

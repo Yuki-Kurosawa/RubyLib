@@ -51,6 +51,7 @@ public final class pm {
      * @param context Context
      * @return Version Name
      */
+    @SuppressWarnings("deprecation")
     public static String GetCurrentVersionName(Context context) {
         PackageManager packageManager = context.getPackageManager();
         try {
@@ -84,6 +85,7 @@ public final class pm {
      * @param context     Context
      * @return Version Code
      */
+    @SuppressWarnings("deprecation")
     public static String GetPackageVersionName(Context context, String packageName) {
         PackageManager packageManager = context.getPackageManager();
         try {
@@ -145,6 +147,7 @@ public final class pm {
      * @param context Context
      * @return Result
      */
+    @SuppressWarnings("deprecation")
     public static List<PermissionInfo> GetPermissions(Context context){
         try {
             PackageManager packageManager = context.getPackageManager();

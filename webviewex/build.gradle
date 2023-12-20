@@ -3,7 +3,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'signing'
 
 android {
-    compileSdk 34
+    compileSdk 33
 
     defaultConfig {
         minSdkVersion 29
@@ -22,10 +22,6 @@ android {
     buildToolsVersion '34.0.0'
 }
 
-task generateSourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier 'sources'
-}
 
 def versionName = MVNVERSION
 def SNAPSHOT_REPOSITORY_URL="https://s01.oss.sonatype.org/content/repositories/snapshots/"
@@ -42,7 +38,7 @@ publishing {
             // 必须有这个 否则不会上传AAR包
             afterEvaluate { artifact(tasks.getByName("bundleReleaseAar")) }
             // 上传source，这样使用方可以看到方法注释
-            artifact generateSourcesJar
+
 
             pom {
                 name = 'Yuki Library - Maven Test'
@@ -87,9 +83,9 @@ signing {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.5.1', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    implementation 'androidx.appcompat:appcompat:1.3.0'
-    testImplementation 'junit:junit:4.12'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    testImplementation 'junit:junit:4.13.2'
 }

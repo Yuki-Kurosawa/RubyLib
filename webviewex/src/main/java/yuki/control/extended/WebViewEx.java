@@ -1041,7 +1041,7 @@ public class WebViewEx extends WebView{
 				}
 			}
 
-			@Override
+			/*@Override
 			public void onReachedMaxAppCacheSize(long requiredStorage, long quota, WebStorage.QuotaUpdater quotaUpdater) {
 				if (mCustomWebChromeClient != null) {
 					mCustomWebChromeClient.onReachedMaxAppCacheSize(requiredStorage, quota, quotaUpdater);
@@ -1049,7 +1049,7 @@ public class WebViewEx extends WebView{
 				else {
 					super.onReachedMaxAppCacheSize(requiredStorage, quota, quotaUpdater);
 				}
-			}
+			}*/
 
 		});
 
